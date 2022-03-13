@@ -56,9 +56,11 @@ u32 SFileReadFile(SHANDLE hFile, void* buffer, u32 toRead, u32* read, int idk) {
 const u32 Func_FastFileRead = 0x004D2D10;
 void* FastFileRead(const char* filename, void* buffer, bool returnIfNotFound, u32 scope, u32* filesize) {
   char dbg_filename[] = "Storm.cpp"; // __FILE__
-  static int dbg_filename_int = (u32)(dbg_filename);
-  static int returnIfNotFound_int = returnIfNotFound;
+  static u32 dbg_filename_int = (u32)(dbg_filename);
+  static u32 returnIfNotFound_int;
+  returnIfNotFound_int = returnIfNotFound;
   static void* result;
+
   __asm {
     PUSHAD
     
