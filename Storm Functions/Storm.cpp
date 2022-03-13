@@ -2,11 +2,11 @@
 #include <Windows.h>
 
 namespace {
-  typedef void* (__stdcall *SMemAlloc_type)(u32 size, char* filename, u32 line, int idk); // 401
-  typedef u32(__stdcall *SMemFree_type)(void* ptr, char* filename, u32 line, int idk); // 403
+  typedef void* (__stdcall *SMemAlloc_type)(u32 size, const char* filename, u32 line, int idk); // 401
+  typedef u32(__stdcall *SMemFree_type)(void* ptr, const char* filename, u32 line, int idk); // 403
   typedef u32(__stdcall *SFileCloseFile_type)(SHANDLE hFile); // 253
   typedef u32(__stdcall *SFileGetFileSize_type)(SHANDLE hFile, u32* lpFileSizeHigh); // 265
-  typedef u32(__stdcall *SFileOpenFileEx_type)(SHANDLE hArchive, char* filename, u32 scope, SHANDLE* hFile); // 268
+  typedef u32(__stdcall *SFileOpenFileEx_type)(SHANDLE hArchive, const char* filename, u32 scope, SHANDLE* hFile); // 268
   typedef u32(__stdcall *SFileReadFile_type)(SHANDLE hFile, void* buffer, u32 toRead, u32* read, int idk); // 269
   SMemAlloc_type SMemAlloc_ptr = NULL;
   SMemFree_type SMemFree_ptr = NULL;
@@ -27,11 +27,11 @@ namespace {
 };
 
 
-void* SMemAlloc(u32 size, char* filename, u32 line, int idk) {
+void* SMemAlloc(u32 size, const char* filename, u32 line, int idk) {
   if (SMemAlloc_ptr == NULL) loadStorm();
   return SMemAlloc_ptr(size, filename, line, idk);
 }
-u32 SMemFree(void* ptr, char* filename, u32 line, int idk) {
+u32 SMemFree(void* ptr, const char* filename, u32 line, int idk) {
   if (SMemAlloc_ptr == NULL) loadStorm();
   return SMemFree_ptr(ptr, filename, line, idk);
 }
@@ -43,7 +43,7 @@ u32 SFileGetFileSize(SHANDLE hFile, u32* lpFileSizeHigh) {
   if (SMemAlloc_ptr == NULL) loadStorm();
   return SFileGetFileSize_ptr(hFile, lpFileSizeHigh);
 }
-u32 SFileOpenFileEx(SHANDLE hArchive, char* filename, u32 scope, SHANDLE* hFile) {
+u32 SFileOpenFileEx(SHANDLE hArchive, const char* filename, u32 scope, SHANDLE* hFile) {
   if (SMemAlloc_ptr == NULL) loadStorm();
   return SFileOpenFileEx(hArchive, filename, scope, hFile);
 }
@@ -54,7 +54,7 @@ u32 SFileReadFile(SHANDLE hFile, void* buffer, u32 toRead, u32* read, int idk) {
 
 
 const u32 Func_FastFileRead = 0x004D2D10;
-void* FastFileRead(char* filename, void* buffer, bool returnIfNotFound, u32 scope, u32* filesize) {
+void* FastFileRead(const char* filename, void* buffer, bool returnIfNotFound, u32 scope, u32* filesize) {
   char dbg_filename[] = "Storm.cpp"; // __FILE__
   static int dbg_filename_int = (u32)(dbg_filename);
   static int returnIfNotFound_int = returnIfNotFound;
