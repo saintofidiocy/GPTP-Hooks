@@ -1,0 +1,39 @@
+FF01	none	any	Or
+FF02	unit	any	Current unit is...
+FF03	unit	any	Must have... 
+FF04	none	unit	Must have add-on
+FF05	none	any	Is not lifted off
+FF06	none	no unit	Is lifted off
+FF07	none	any	Is not training or morphing
+FF08	none	any	Is not constructing add-on
+FF09	none	any	Is not researching
+FF0A	none	any	Is not upgrading
+FF0B	none	unit	Is not constructing
+FF0C	none	unit	Does not have add-on attached
+FF0D	none	unit	Does not have exit
+FF0E	none	unit	Has hangar space
+FF0F	none	no unit	Must be researched
+FF10	none	unit	Does not have loaded nuke
+FF11	none	any	Is not burrowed
+FF12	none	no unit	Can attack
+FF13	none	no unit	Can set rally point
+FF14	none	no unit	Can move
+FF15	none	no unit	Has weapon
+FF16	none	no unit	Is worker
+FF17	none	no unit	Is flying building
+FF18	none	no unit	Is transport
+FF19	none	no unit	Is powerup
+FF1A	none	no unit	Is Subunit
+FF1B	none	no unit	Has spidermines
+FF1C	none	no unit	Is hero and enabled
+FF1D	none	no unit	Can hold position
+FF1E	none	no unit	Allow on hallucinations
+FF1F	none	no unit	Upgrade Lv-1 Require...
+FF20	none	no unit	Upgrade Lv-2 Require...
+FF21	none	no unit	Upgrade Lv-3+ Require...
+FF22	none	any	Grey
+FF23	none	any	Blank
+FF24	none	any	Must be Brood War
+FF25	tech	unit	Is researched...
+FF26	none	any	Is burrowed
+FFFF	none	no unit	--End of Sublist--

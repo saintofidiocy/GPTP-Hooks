@@ -1,0 +1,9 @@
+2	1	Building
+1	0	Normal Unit
+4	3	Unit w/ Subunits
+3	2	Transport
+7	6	Transport w/ Supply
+8	7	Powerup
+6	5	Morph Unit
+5	4	Merge Unit
+0	8	Unselectable

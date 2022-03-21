@@ -1,0 +1,30 @@
+# comment -- can be on any line, anything after it is ignored
+
+#DAT REQ:
+1:  # ID 1
+  0xFF02   # an opcode
+  111      # a parameter
+  65288    # can be hex or dec
+  112      # other parameter
+  0xFFFF   # end of list
+
+
+
+
+#BUTTONS:
+1:  # buttonset ID -- can technically be anything, but should be something reasonable since button set array is contiguous (don't use huge numbers)
+# position, icon ID, condition ID, action ID, condition parameter, action parameter, enable string, disable string
+# should it be "pos, icon, disable str, enable str, condition ID, condition param, action ID, action param" ??
+1, 130, 1, 2, 0, 0, 373, 0
+2, 248, 3, 4, 0, 0, 372, 0
+
+Unit 1:  # unit ID
+# buttonset ID[, connected Unit = 65535[, stat func ID, disp func ID]]
+
+Unit 1: 1              # connected unit defaults to 65535
+
+Unit 2: 1, 65535
+
+Unit 3: 1, 65535, 2, 1 # if stat info is omitted then it will not be updated
+
+unit 4: -1             # sets button set to None

@@ -1,0 +1,60 @@
+0x00423180		Cancel Infestation
+0x004244A0		Rally Point
+0x00423930		Select Larva
+0x004234B0	unit	Create Unit
+0x00423490		Cancel Last
+0x00423470		Tank Mode
+0x00423450	tech	Siege Mode
+0x00423430		Cancel Construction
+0x00423410		Cancel Morph
+0x00424440		Move
+0x004233F0		Stop
+0x00424380		Attack
+0x00424320		Attack(Suicide)
+0x004242C0		Attack(Building)
+0x00424260		Move (Carrier\Reaver)
+0x004233D0		Stop Carrier
+0x004233B0		Stop Reaver
+0x00424200		Attack Carrier
+0x004241A0		Attack Reaver
+0x00423390	unit	Build Subunit
+0x00424140		Patrol
+0x00423370		Hold Position
+0x00423350	tech	Research Technology
+0x00423330		Cancel Technology Research
+0x00423F70	tech	Use Technology
+0x004234D0	tech	StimPack
+0x00423310	upgrade	Research Upgrade
+0x004232F0		Cancel Upgrade Research
+0x004232D0		Cancel AddOn
+0x00423EB0	unit	Create Building - Terran
+0x00423E90		Place COP
+0x00423DD0	unit	Create Building - Protoss
+0x00423D10	unit	Create AddOn
+0x00423C50	unit	Create Building - Zerg
+0x00423C40	unit	Place Nydus Canal Exit
+0x00423860	unit	Building Morph
+0x00423C30	unit	Land
+0x00423BD0		Repair
+0x00423790	unit	Unit Morph
+0x00423B70		Gather
+0x00423760		Return Cargo
+0x004232B0	tech	Burrow
+0x00423290		Unburrow
+0x00423730	tech	Cloak
+0x00423270		Decloak
+0x00423230		Lift Off
+0x00423B40		Load
+0x00423B00		Unload
+0x00423210	unit	Archon Warp
+0x004231F0	unit	Dark Archon Meld
+0x00423AA0		Recharge Shields
+0x00423A40		Nuclear Strike
+0x004231D0		Cancel Nuclear Strike
+0x004239E0	tech	Heal
+0x004DF300		Slow Down Replay
+0x004DF2C0		Play\Pause Replay
+0x004DF260		Speed Up Replay
+0x00429770		Cancel
+0x00429780		Cancel Place Building
+0x00459AF0	unit	Change Displayed Buttons

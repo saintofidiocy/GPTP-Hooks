@@ -1,0 +1,67 @@
+0x004DEB40		Slow Down Replay
+0x004DEAF0		Speed Up Replay
+0x004DEAC0		Play/Pause Replay
+0x004282D0		Always
+0x00428E60	unit	Can Create Unit\Building
+0x00428E00	unit	Can Build Subunit
+0x00428DA0		Mixed Group - Move\Patrol\Hold Position
+0x00428D40		Mixed Group - Stop
+0x00428F30		Unit Has A Weapon
+0x00428ED0		Attacking Building
+0x00428530		Cancel Last
+0x00428920		Cancel AddOn
+0x00428500		Larva Exists(Upgrading Only)
+0x00429520		Rally Point
+0x00429740		Rally Point - While Upgrading Only
+0x004284E0		Construction\Mutation Underway
+0x00428900		Upgrade Underway
+0x004288E0		Research Underway
+0x004284B0		Unit Is Carrying Nothing (Gather - Probe)
+0x00428480		Unit Is Carrying Something(Return Cargo - Probe)
+0x00428FF0		Unit's Capacity Has Not Been Met
+0x00428EA0		Carrying Some Units
+0x00429500	tech	Tech Spell Not Researched
+0x004294E0	tech	Spell Researched
+0x00429470	tech	Has Spidermine and Is Researched
+0x00429450	upgrade	Upgrade Not At Max Level
+0x004293E0	tech	Can Cloak
+0x00429370	tech	Can Decloak
+0x004292C0	tech	Can Cloak - Mixed
+0x00429210	tech	Can Decloak - Mixed
+0x004291C0	tech	Tank Is In Tank Mode
+0x00429170	tech	Tank Is In Siege Mode
+0x00428860		Tank Is In Tank Mode(Move)
+0x00428810		Nuke Available
+0x00428440		Recharge Shields
+0x00428420		Building Can Move And Has Lifted Off
+0x004283F0		Building Has Lifted Off
+0x004287D0		Building Has Landed
+0x004290F0	tech	Ability Is Researched
+0x00429070	tech	Is Using Ability
+0x00429720	unit	Morph To Lurker
+0x004283C0		Not Burrowed(Move\Stop\Patrol\Hold Position)
+0x00428FA0		Not Burrowed (Attack)
+0x00428780		Has No Cargo (Gather - Drone)
+0x00428730		Has Cargo (Return Cargo - Drone)
+0x00428360		Burrowed (Stop - Lurker)
+0x00428340	unit	Has No Exit
+0x00428CB0		Zerg Basic Buildings
+0x00428C30		Zerg Advanced Buildings
+0x004286E0		Has Interceptors
+0x004286A0		Has Scarabs
+0x004296F0	tech	2 Units Selected & Not Researched(Archon Merge)
+0x004296B0	unit	2 Units Selected (Archon Warp)
+0x00429680	tech	2 Units Selected & Not Researched(Dark Archon Meld)
+0x00429640	unit	2 Units Selected (Dark Archon Meld)
+0x00428B80		Protoss Basic Buildings
+0x00428AD0		Protoss Advanced Buildings
+0x00428310		Is Constructing (Halt - SCV)
+0x00428670		Move (SCV)
+0x00428640		Stop (SCV)
+0x00428610		Attack (SCV)
+0x004285E0		Repair (SCV)
+0x004285A0		Gather (SCV)
+0x00428560		Return Cargo (SCV)
+0x00428A10		Terran Basic Buildings
+0x00428990		Terran Advanced Buildings
+0x00428960	unit	Nuke Train
