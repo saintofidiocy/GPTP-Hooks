@@ -17,6 +17,8 @@ All of these files are optional, and each patch will only be applied if the asso
 - Merge the GPTP directory with your project (modifications to base GPTP files are listed below) 
 - Apart from Loading Hook, there is nothing to be added to initialize.cpp as changes are made when each file is loaded
 
+Alternatively, start with the [DatExtender](https://github.com/saintofidiocy/GPTP/tree/DatExtender) fork of GPTP which comes with the Graft Hook already integrated.
+  
 
 #### Modifications to Base GPTP Files
 Changes to base GPTP files done by this hook are listed here to aid in merging if your plugin has already modified any of these files, your plugin contains something requiring similar modifications, or you are attempting to merge with a newer version of GPTP.
@@ -31,7 +33,7 @@ Changes to base GPTP files done by this hook are listed here to aid in merging i
   - `unitStatFuncs` definition is removed and now in scbwdata.h
 - **GPTP\hooks\recv_commands\CMDRECV_LiftOff.cpp** and **GPTP\hooks\recv_commands\CMDRECV_Stop.cpp**:
   - All instances of the constant `0x00514CF8` have been replaced with `orderDatReqScript`
-
+  
 
 ### Creating .graft Files
 Until PyGRAFT is made, the graft compiler can be used to convert FireGraft patches into .graft files.
