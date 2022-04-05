@@ -11,7 +11,7 @@ This hook provides a way for defining custom images.dat drawing functions, and c
 
 ### Creating New Drawing Functions
 1. Copy either the Alpha or Normal draw functions in draw_funcs.cpp (normal draw is included in a comment)
-2. If needed, create an update function (the function type definition is in draw_funcs.h) to update the image right before the iscript parser is called (typucally used to decrement timers in coloringData)
+2. If needed, create an update function (the function type definition is in draw_funcs.h) to update the image right before the iscript parser is called (typically used to decrement timers in coloringData)
 3. Add the function prototypes to draw_funcs.h
 4. In draw_funcs_inject.cpp, add your update function (or `UpdateFunc_Null` for none) to a new entry in `imgUpdateFuncs`
 5. Similarly, add your draw functions to a new entry in `imgDrawFuncs` (needs a normal and flipped function, but they can point to the same function for no flipping)
