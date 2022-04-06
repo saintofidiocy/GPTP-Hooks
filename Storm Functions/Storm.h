@@ -9,6 +9,11 @@ u32 SFileCloseFile(SHANDLE hFile);
 u32 SFileGetFileSize(SHANDLE hFile, u32* lpFileSizeHigh);
 u32 SFileOpenFileEx(SHANDLE hArchive, const char* filename, u32 scope, SHANDLE* hFile);
 u32 SFileReadFile(SHANDLE hFile, void* buffer, u32 toRead, u32* read, int idk);
+bool SErrGetErrorStr(u32 dwErrCode, char* buffer, u32 bufferchars);
+u32 SErrGetLastError();
+void SErrSetLastError(u32 dwErrCode);
+
+
 
 // Loads an MPQ file to memory (SC function 0x004D2D10)
 // - Returns the data pointer on success (see `buffer` argument)
