@@ -10,7 +10,7 @@ Use batch files to make it easy:
 
 generate default scripts.bat -- Dumps entire default scripts from starcraft.exe
 compile scripts.bat          -- Compiles scripts as they are to .graft files
-compile scripts.bat          -- Merges scripts with starcraft.exe data to generate .graft files
+merge scripts.bat            -- Merges scripts with starcraft.exe data to generate .graft files
 datext fg helper.bat         -- Drag & Drop *.fgp file to decompile (doesn't have to be a datext fgp),
                                   or run on its own and follow the prompts for DatExt graft files
 
