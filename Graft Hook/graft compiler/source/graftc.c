@@ -1513,7 +1513,7 @@ u32 getLineCount(u8* buf){
 u8* parseLine(u8* buf, u8 delim, u32* dataCount, char*** data){
   static char* s_data[16];
   u32 count;
-  u32 i;
+  u32 i,j;
   
   count = 0;
   for(i = 0; buf[i] != '\n' && buf[i] != '\r' && buf[i] != 0; i++){
@@ -1526,15 +1526,20 @@ u8* parseLine(u8* buf, u8 delim, u32* dataCount, char*** data){
       for(i++; buf[i] != '\n' && buf[i] != '\r' && buf[i] != 0; i++); // ignore rest of the line
       break;
     }
+    
+    // remove trailing spaces
+    for(j = i; j > 0 && buf[j-1] != 0 && buf[j-1] != delim && (buf[j-1] == ' ' || buf[j-1] == '\t'); j--);
+    if(j != i) buf[j] = 0;
+    
     if(buf[i] != delim) break;
     buf[i] = 0;
   }
-  buf[i] = 0;
-  i++;
-  if(buf[i] == '\r'){
+  if(buf[i] == '\r' && buf[i+1] == '\n'){
     buf[i] = 0;
     i++;
   }
+  buf[i] = 0;
+  i++;
   
   *dataCount = count;
   *data = s_data;
