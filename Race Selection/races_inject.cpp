@@ -44,8 +44,6 @@ namespace {
     }
   }
 
-
-
   const u32 loadMapRaces_Return = 0x004BF6EA;
   void __declspec(naked) loadMapRaces_Wrapper() {
     __asm {
@@ -55,6 +53,45 @@ namespace {
     __asm {
       POPAD
       JMP loadMapRaces_Return
+    }
+  }
+
+  const u32 playerShuffle_Return = 0x004AA000;
+  const u32 playerShuffle_Exit = 0x004AA134;
+  void __declspec(naked) playerShuffle_Wrapper() {
+    static u32 newID;
+    static u32 oldID;
+    __asm {
+      MOV newID, EAX
+      MOV oldID, EBX
+      PUSHAD
+    }
+    hooks::playerShuffle(newID, oldID);
+    if (oldID == 0) {
+      __asm {
+        POPAD
+        JMP playerShuffle_Exit
+      }
+    } else {
+      __asm {
+        POPAD
+        JMP playerShuffle_Return
+      }
+    }
+  }
+
+  void __declspec(naked) validRace_Wrapper() {
+    static u8 raceID;
+    static u32 valid;
+    __asm {
+      MOV raceID, AL
+      PUSHAD
+    }
+    valid = hooks::isValidRace(raceID) ? 6 : 0; // 6 is the valid ID that is checked after returning
+    __asm {
+      POPAD
+      MOV EAX, valid
+      RETN
     }
   }
 
@@ -77,6 +114,9 @@ namespace hooks {
     callPatch(randomizeRace, 0x004A9AB7);
     callPatch(GetRandomRace_Wrapper, 0x004A9AC5);
     jmpPatch(loadMapRaces_Wrapper, 0x004BF6A1);
+    jmpPatch(setVirtualRaces, 0x004A9C87);
+    jmpPatch(playerShuffle_Wrapper, 0x004AA12E, 1);
+    callPatch(validRace_Wrapper, 0x004AAAC2, 7);
   }
 
 } //hooks

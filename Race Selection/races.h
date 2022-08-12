@@ -7,8 +7,15 @@ typedef struct {
 } RaceTable;
 
 namespace hooks {
+
+  // used to access virtual races elsewhere
+  u32 getVirtualRace(u8 player);
+
+  void setVirtualRaces();
+  void playerShuffle(u8 newID, u8 oldID);
   u32 getRandomRace(u32 index, u32 count);
   void loadMapRaces();
+  bool isValidRace(u8 raceID);
 
 	void injectCustomizedRaces();
  

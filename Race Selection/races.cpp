@@ -8,7 +8,7 @@ namespace hooks {
     { RaceId::Zerg,    7 },
     { RaceId::Terran,  8 },
     { RaceId::Protoss, 9 },
-    { RaceId::Random,  10 }
+    { RaceId::Random,  10 },
   };
   u32 CustomRaceCount = sizeof(CustomRaceList) / sizeof(RaceTable);
 
@@ -23,11 +23,43 @@ namespace hooks {
   };
   const u32 RandomRaceCount = sizeof(RandomRaceList);
   u32 RandomRaceMax = RandomRaceCount - 1;
-  
+
+
+  // Holds custom race IDs
+  u8 playerVirtualRaces[8] = { 0 };
+  u8 virtualRaceShuffle[8] = { 0 };
+
+
   // Used to keep track of Random race selection
   u32 shuffleCount;
   bool shuffleSel[RandomRaceCount];
 
+
+
+  // Stores custom virtual Race ID's while setting a valid Race ID
+  PLAYER* activePlayers = (PLAYER*)(0x0057EEE0); // redefine because it's const in scbwdata.h
+  void setVirtualRaces() {
+    for (int i = 0; i < 8; i++) {
+      playerVirtualRaces[i] = activePlayers[i].race;
+      virtualRaceShuffle[i] = activePlayers[i].race;
+
+      if (activePlayers[i].race > RaceId::Protoss) {
+        // TODO: Set virtual races to appropriate valid IDs !!!
+        activePlayers[i].race = RaceId::Terran;
+      }
+    }
+  }
+
+  // Virtual race ID's accessible from anywhere
+  u32 getVirtualRace(u8 player) {
+    if (player >= 8) return RaceId::None;
+    return playerVirtualRaces[player];
+  }
+
+  // Keeps virtual race ID's in sync with in-game player ID's with random start locations
+  void playerShuffle(u8 newID, u8 oldID) {
+    playerVirtualRaces[newID] = virtualRaceShuffle[oldID];
+  }
 
 
   // Shuffles races, attempting to give a relatively even distribution
@@ -86,7 +118,7 @@ namespace hooks {
   PLAYER* playerTableLoad = (PLAYER*)(0x0059BDB0);
   u8* userSelectable = (u8*)(0x0059BDA8);
   void loadMapRaces() {
-    u32 i, j;
+    u32 i;
     for (i = 0; i < 8; i++) {
       playerTableLoad[i].id = i;
       playerTableLoad[i].actions = 0xFFFFFFFF;
@@ -96,12 +128,7 @@ namespace hooks {
           playerTableLoad[i].race = DefaultRace;
           userSelectable[i] = 1;
         } else {
-          for (j = 0; j < CustomRaceCount; j++) {
-            if (playerTableLoad[i].race == CustomRaceList[j].raceId) {
-              break;
-            }
-          }
-          if (j == CustomRaceCount) {
+          if(isValidRace(playerTableLoad[i].race) == false){
             playerTableLoad[i].race = DefaultRace;
           }
         }
@@ -112,6 +139,16 @@ namespace hooks {
       playerTableLoad[i].race = 0;
       playerTableLoad[i].force = 0;
     }
+  }
+
+  // checks if raceID is in the race list
+  bool isValidRace(u8 raceID) {
+    for (u32 i = 0; i < CustomRaceCount; i++) {
+      if (CustomRaceList[i].raceId == raceID) {
+        return true;
+      }
+    }
+    return false;
   }
 
 
