@@ -189,16 +189,16 @@ namespace hooks {
     if (data != NULL) {
       injectGraftingData(data, GraftType::units_req);
 
-      if (upgrades_req != NULL) SMemFree(upgrades_req, "grafting.cpp", __LINE__, 0);
-      upgrades_req = (REQ_SCRIPT*)data;
+      if (units_req != NULL) SMemFree(units_req, "grafting.cpp", __LINE__, 0);
+      units_req = (REQ_SCRIPT*)data;
     }
 
     data = FastFileRead("datreq\\upgrades.graft", NULL, true, 0, NULL);
     if (data != NULL) {
       injectGraftingData(data, GraftType::upgrades_req);
 
-      if (units_req != NULL) SMemFree(units_req, "grafting.cpp", __LINE__, 0);
-      units_req = (REQ_SCRIPT*)data;
+      if (upgrades_req != NULL) SMemFree(upgrades_req, "grafting.cpp", __LINE__, 0);
+      upgrades_req = (REQ_SCRIPT*)data;
     }
 
     data = FastFileRead("datreq\\research.graft", NULL, true, 0, NULL);
