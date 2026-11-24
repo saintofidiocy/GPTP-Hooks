@@ -253,7 +253,7 @@ SCBW_DATA(u16*, WeaponIconId,		weaponsDat[23].address);//00656780
 namespace upgrades_dat {
 SCBW_DATA(const DatLoad*, upgradesDat, 0x005136E0);
 
-SCBW_DATA(u16*, MineralCostBase,    upgradesDat[0].address);	//00656740
+SCBW_DATA(u16*, MineralCostBase,    upgradesDat[0].address);	//00655740
 SCBW_DATA(u16*, MineralCostFactor,  upgradesDat[1].address);	//006559C0
 SCBW_DATA(u16*, GasCostBase,        upgradesDat[2].address);	//00655840
 SCBW_DATA(u16*, GasCostFactor,      upgradesDat[3].address);	//006557C0
