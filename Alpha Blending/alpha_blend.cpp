@@ -191,21 +191,21 @@ namespace graphics {
 
             // farthest cell point
             far[i] = 0;
-            if (palette[i].r <= (maskR + CELL_WIDTH) / 2) {
+            if (palette[i].r <= maskR + CELL_WIDTH / 2) {
               calc = palette[i].r - (maskR + CELL_WIDTH);
               far[i] = calc*calc;
             } else {
               calc = palette[i].r - maskR;
               far[i] = calc*calc;
             }
-            if (palette[i].g <= (maskG + CELL_WIDTH) / 2) {
+            if (palette[i].g <= maskG + CELL_WIDTH / 2) {
               calc = palette[i].g - (maskG + CELL_WIDTH);
               far[i] += calc*calc;
             } else {
               calc = palette[i].g - maskG;
               far[i] += calc*calc;
             }
-            if (palette[i].b <= (maskB + CELL_WIDTH) / 2) {
+            if (palette[i].b <= maskB + CELL_WIDTH / 2) {
               calc = palette[i].b - (maskB + CELL_WIDTH);
               far[i] += calc*calc;
             } else {
