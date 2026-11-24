@@ -1135,15 +1135,15 @@ void parseTXTButtons(const char* filename){
       buttonSets[butID].buttonsInSet = 0;
     }else{
       if(butcount > buttonSets[butID].buttonsInSet){
-        if((buttonSets[butID].connectedUnit & FG_BUTTONS) == 0){ // not FG data
+        if((buttonSets[butID].padding & FG_BUTTONS) == 0){ // not FG data
           if(buttonSets[butID].firstButton != NULL) free(buttonSets[butID].firstButton);
         }
         buttonSets[butID].firstButton = malloc(butcount * sizeof(BUTTON));
-        buttonSets[butID].connectedUnit &= ~FG_BUTTONS; // not FG data
+        buttonSets[butID].padding &= ~FG_BUTTONS; // not FG data
       }
       memcpy(buttonSets[butID].firstButton, butbuf, butcount * sizeof(BUTTON));
       buttonSets[butID].buttonsInSet = butcount;
-      buttonSets[butID].connectedUnit |= TXT_BUTTONS;
+      buttonSets[butID].padding |= TXT_BUTTONS;
     }
   }
   
@@ -1408,22 +1408,22 @@ char* getIDName(u32 id, u32 type){
   static u8 buf[16] = "";
   switch(type){
     case UNIT:
-      if(id >= unitStrCount && unitNames[id] != NULL) break;
+      if(id >= unitStrCount || unitNames[id] == NULL) break;
       return unitNames[id];
     case TECH:
-      if(id >= techStrCount && techNames[id] != NULL) break;
+      if(id >= techStrCount || techNames[id] == NULL) break;
       return techNames[id];
     case UPGRADE:
-      if(id >= upgdStrCount && upgdNames[id] != NULL) break;
+      if(id >= upgdStrCount || upgdNames[id] == NULL) break;
       return upgdNames[id];
     case ORDER:
-      if(id >= orderStrCount && orderNames[id] != NULL) break;
+      if(id >= orderStrCount || orderNames[id] == NULL) break;
       return orderNames[id];
     case ICON:
-      if(id >= iconStrCount && iconNames[id] != NULL) break;
+      if(id >= iconStrCount || iconNames[id] == NULL) break;
       return iconNames[id];
     case BSET:
-      if(id >= bsetStrCount && bsetNames[id] != NULL) break;
+      if(id >= bsetStrCount || bsetNames[id] == NULL) break;
       return bsetNames[id];
     case NONE:
     default:
