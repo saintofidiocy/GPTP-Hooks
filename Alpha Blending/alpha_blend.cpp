@@ -70,7 +70,7 @@ namespace graphics {
   ColorId blend(u8* rgb1, u8* rgb2, u8 a) {
     RGBA col1 = { rgb1[0], rgb1[1], rgb1[2], 0 };
     RGBA col2 = { rgb2[0], rgb2[1], rgb2[2], 0 };
-    return blend(rgb1, rgb2, a);
+    return blend(col1, col2, a);
   }
 
 
@@ -161,6 +161,11 @@ namespace graphics {
 
           count = 0;
 
+          // Clear the results of the previous cell
+          for (i = 0; i < 256; i++) {
+            if (flags[i] != PAL_IGNORE) flags[i] = 0;
+          }
+
           // Calculate nearest and farthest points within the cell for each palette index
           for (i = 0; i < 256; i++) {
             if (flags[i] == PAL_IGNORE) continue;
@@ -191,21 +196,21 @@ namespace graphics {
 
             // farthest cell point
             far[i] = 0;
-            if (palette[i].r <= (maskR + CELL_WIDTH) / 2) {
+            if (palette[i].r <= maskR + CELL_WIDTH / 2) {
               calc = palette[i].r - (maskR + CELL_WIDTH);
               far[i] = calc*calc;
             } else {
               calc = palette[i].r - maskR;
               far[i] = calc*calc;
             }
-            if (palette[i].g <= (maskG + CELL_WIDTH) / 2) {
+            if (palette[i].g <= maskG + CELL_WIDTH / 2) {
               calc = palette[i].g - (maskG + CELL_WIDTH);
               far[i] += calc*calc;
             } else {
               calc = palette[i].g - maskG;
               far[i] += calc*calc;
             }
-            if (palette[i].b <= (maskB + CELL_WIDTH) / 2) {
+            if (palette[i].b <= maskB + CELL_WIDTH / 2) {
               calc = palette[i].b - (maskB + CELL_WIDTH);
               far[i] += calc*calc;
             } else {
