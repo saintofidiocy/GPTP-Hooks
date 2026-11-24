@@ -61,13 +61,20 @@ namespace {
   void __declspec(naked) playerShuffle_Wrapper() {
     static u32 newID;
     static u32 oldID;
+    static u32 remaining;
+    // EBX counts down through a packed copy of the occupied player slots, so
+    // it is not a player ID. ESI points just past the entry that was copied;
+    // that entry's id field (+0x00) still holds the original player ID.
     __asm {
       MOV newID, EAX
-      MOV oldID, EBX
+      MOV remaining, EBX
+      MOV EAX, [ESI-0x24]
+      MOV oldID, EAX
+      MOV EAX, newID
       PUSHAD
     }
     hooks::playerShuffle(newID, oldID);
-    if (oldID == 0) {
+    if (remaining == 0) {
       __asm {
         POPAD
         JMP playerShuffle_Exit
