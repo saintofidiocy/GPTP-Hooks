@@ -1135,15 +1135,15 @@ void parseTXTButtons(const char* filename){
       buttonSets[butID].buttonsInSet = 0;
     }else{
       if(butcount > buttonSets[butID].buttonsInSet){
-        if((buttonSets[butID].connectedUnit & FG_BUTTONS) == 0){ // not FG data
+        if((buttonSets[butID].padding & FG_BUTTONS) == 0){ // not FG data
           if(buttonSets[butID].firstButton != NULL) free(buttonSets[butID].firstButton);
         }
         buttonSets[butID].firstButton = malloc(butcount * sizeof(BUTTON));
-        buttonSets[butID].connectedUnit &= ~FG_BUTTONS; // not FG data
+        buttonSets[butID].padding &= ~FG_BUTTONS; // not FG data
       }
       memcpy(buttonSets[butID].firstButton, butbuf, butcount * sizeof(BUTTON));
       buttonSets[butID].buttonsInSet = butcount;
-      buttonSets[butID].connectedUnit |= TXT_BUTTONS;
+      buttonSets[butID].padding |= TXT_BUTTONS;
     }
   }
   
