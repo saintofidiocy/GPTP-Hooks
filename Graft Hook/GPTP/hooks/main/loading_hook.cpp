@@ -5,7 +5,7 @@
 
 namespace hooks {
 
-// Called the end of the data loading function, after GRPs and such are loaded
+// Called at the end of init_program (0x004DAF30): MPQs are open, but images.dat GRPs are not loaded yet
 void loadingData() {
   // load some mpq files, or whatever
   
