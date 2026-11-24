@@ -76,7 +76,7 @@ void SErrSetLastError(u32 dwErrCode) {
 
 const u32 Func_FastFileRead = 0x004D2D10;
 void* FastFileRead(const char* filename, void* buffer, bool returnIfNotFound, u32 scope, u32* filesize) {
-  char dbg_filename[] = "Storm.cpp"; // __FILE__
+  static const char dbg_filename[] = "Storm.cpp"; // __FILE__
   static u32 dbg_filename_int = (u32)(dbg_filename);
   static u32 returnIfNotFound_int;
   returnIfNotFound_int = returnIfNotFound;
