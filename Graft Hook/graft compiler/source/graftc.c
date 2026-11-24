@@ -1408,22 +1408,22 @@ char* getIDName(u32 id, u32 type){
   static u8 buf[16] = "";
   switch(type){
     case UNIT:
-      if(id >= unitStrCount && unitNames[id] != NULL) break;
+      if(id >= unitStrCount || unitNames[id] == NULL) break;
       return unitNames[id];
     case TECH:
-      if(id >= techStrCount && techNames[id] != NULL) break;
+      if(id >= techStrCount || techNames[id] == NULL) break;
       return techNames[id];
     case UPGRADE:
-      if(id >= upgdStrCount && upgdNames[id] != NULL) break;
+      if(id >= upgdStrCount || upgdNames[id] == NULL) break;
       return upgdNames[id];
     case ORDER:
-      if(id >= orderStrCount && orderNames[id] != NULL) break;
+      if(id >= orderStrCount || orderNames[id] == NULL) break;
       return orderNames[id];
     case ICON:
-      if(id >= iconStrCount && iconNames[id] != NULL) break;
+      if(id >= iconStrCount || iconNames[id] == NULL) break;
       return iconNames[id];
     case BSET:
-      if(id >= bsetStrCount && bsetNames[id] != NULL) break;
+      if(id >= bsetStrCount || bsetNames[id] == NULL) break;
       return bsetNames[id];
     case NONE:
     default:
