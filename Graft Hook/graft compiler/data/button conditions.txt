@@ -10,7 +10,7 @@
 0x00428ED0		Attacking Building
 0x00428530		Cancel Last
 0x00428920		Cancel AddOn
-0x00428500		Larva Exists(Upgrading Only)
+0x00428500		Larva Exists(Upgrading Only) - Is Hatchery/Lair/Hive
 0x00429520		Rally Point
 0x00429740		Rally Point - While Upgrading Only
 0x004284E0		Construction\Mutation Underway
@@ -49,9 +49,9 @@
 0x00428C30		Zerg Advanced Buildings
 0x004286E0		Has Interceptors
 0x004286A0		Has Scarabs
-0x004296F0	tech	2 Units Selected & Not Researched(Archon Merge)
+0x004296F0	tech	Not Researched(Archon Merge) - Greyed Only
 0x004296B0		2 Units Selected (Archon Warp)
-0x00429680	tech	2 Units Selected & Not Researched(Dark Archon Meld)
+0x00429680	tech	Not Researched(Dark Archon Meld) - Greyed Only
 0x00429640		2 Units Selected (Dark Archon Meld)
 0x00428B80		Protoss Basic Buildings
 0x00428AD0		Protoss Advanced Buildings

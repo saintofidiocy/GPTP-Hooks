@@ -15,8 +15,8 @@ FF0E	none	unit	Has hangar space
 FF0F	none	no unit	Must be researched
 FF10	none	unit	Does not have loaded nuke
 FF11	none	any	Is not burrowed
-FF12	none	no unit	Can attack
-FF13	none	no unit	Can set rally point
+FF12	none	no unit	Can attack (is not a grounded building)
+FF13	none	no unit	Can set rally point (is a grounded building)
 FF14	none	no unit	Can move
 FF15	none	no unit	Has weapon
 FF16	none	no unit	Is worker
