@@ -163,10 +163,10 @@ typedef Bool32 (__fastcall *ActionPointer)(ACTION*);
 
 //GRP frame header
 struct GrpFrame {
-  s8  x;
-  s8  y;
-  s8  width;
-  s8  height;
+  u8  x;
+  u8  y;
+  u8  width;
+  u8  height;
   u32 dataOffset;	//might be u16* (but as a pointer, would still fit in u32)
 };
 

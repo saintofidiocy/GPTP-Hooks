@@ -121,8 +121,8 @@ SCBW_DATA(const s32*,     ACTIVE_NATION_ID,     0x00512678);  //AKA g_ActiveNati
 SCBW_DATA(const s32*,     ACTIVE_PLAYER_ID,     0x0051267C);  //Used by GetActivePlayerNextSelectionFunc
 SCBW_DATA(const s32*,     LOCAL_NATION_ID,      0x00512684);  //AKA g_LocalNationID; Actually stores the player ID.
 SCBW_DATA(const s32*,     LOCAL_HUMAN_ID,       0x00512688);  //AKA g_LocalHumanID; Invalid in replay games.
-SCBW_DATA(const u8*,      CURRENT_TILESET,      0x00596828);  //Tileset of current map. Compare with TilesetType::Enum
-////possible values were 0057F1DC and [00596828]
+SCBW_DATA(const u16*,     CURRENT_TILESET,      0x0057F1DC);  //Tileset of current map. Compare with TilesetType::Enum
+//0x00596828 is a game settings copy that the game only fills in from 0x0057F1DC when it is 0
 
 // Array of 8 integers of 32 bits, thus 256 bits, one per switch
 // Use scbw::getMapSwitch() and scbw::setMapSwitch() to manipulate
@@ -182,15 +182,15 @@ SCBW_DATA(u8*,		ArmorUpgrade,			unitsDat[25].address);	//006635D0
 SCBW_DATA(u8*,		SizeType,				unitsDat[26].address);	//00662180
 SCBW_DATA(u8*,		ArmorAmount,			unitsDat[27].address);	//0065FEC8
 SCBW_DATA(u8*,		RightClickAction,		unitsDat[28].address);	//00662098
-SCBW_DATA(u16*,		SoundReady,				unitsDat[29].address);	//00661FC0
+SCBW_DATA(u16*,		SoundReady,				unitsDat[29].address);	//00661FC0, 106 entries (units 0-105 only)
 SCBW_DATA(u16*,		SoundWhatFirst,			unitsDat[30].address);	//0065FFB0
 SCBW_DATA(u16*,		SoundWhatLast,			unitsDat[31].address);	//00662BF0
-SCBW_DATA(u16*,		SoundAnnoyedFirst,		unitsDat[32].address);	//00663B38
-SCBW_DATA(u16*,		SoundAnnoyedLast,		unitsDat[33].address);	//00661EE8
-SCBW_DATA(u16*,		SoundYesFirst,			unitsDat[34].address);	//00663C10
-SCBW_DATA(u16*,		SoundYesLast,			unitsDat[35].address);	//00661440
+SCBW_DATA(u16*,		SoundAnnoyedFirst,		unitsDat[32].address);	//00663B38, 106 entries (units 0-105 only)
+SCBW_DATA(u16*,		SoundAnnoyedLast,		unitsDat[33].address);	//00661EE8, 106 entries (units 0-105 only)
+SCBW_DATA(u16*,		SoundYesFirst,			unitsDat[34].address);	//00663C10, 106 entries (units 0-105 only)
+SCBW_DATA(u16*,		SoundYesLast,			unitsDat[35].address);	//00661440, 106 entries (units 0-105 only)
 SCBW_DATA(Point16*,	BuildingDimensions,		unitsDat[36].address);	//00662860
-SCBW_DATA(Point16*,	AddonPlacement,			unitsDat[37].address);	//006626E0
+SCBW_DATA(Point16*,	AddonPlacement,			unitsDat[37].address);	//006626E0, (Id - UnitId::TerranCommandCenter) for it to work, 96 entries
 SCBW_DATA(Box16*,	UnitBounds,				unitsDat[38].address);	//006617C8
 SCBW_DATA(u16*,		PortraitId,				unitsDat[39].address);	//00662F88
 SCBW_DATA(u16*,		MineralCost,			unitsDat[40].address);	//00663888
@@ -253,7 +253,7 @@ SCBW_DATA(u16*, WeaponIconId,		weaponsDat[23].address);//00656780
 namespace upgrades_dat {
 SCBW_DATA(const DatLoad*, upgradesDat, 0x005136E0);
 
-SCBW_DATA(u16*, MineralCostBase,    upgradesDat[0].address);	//00656740
+SCBW_DATA(u16*, MineralCostBase,    upgradesDat[0].address);	//00655740
 SCBW_DATA(u16*, MineralCostFactor,  upgradesDat[1].address);	//006559C0
 SCBW_DATA(u16*, GasCostBase,        upgradesDat[2].address);	//00655840
 SCBW_DATA(u16*, GasCostFactor,      upgradesDat[3].address);	//006557C0
@@ -311,11 +311,11 @@ namespace sprites_dat {
 SCBW_DATA(const DatLoad*, spritesDat, 0x00513FB8);
 
 SCBW_DATA(u16*, ImageId,            spritesDat[0].address);		//00666160
-SCBW_DATA(s8*,  HpBarSize,          spritesDat[1].address);		//00665E50
+SCBW_DATA(u8*,  HpBarSize,          spritesDat[1].address);		//00665E50, (Id - 130) for it to work, 387 entries
 //SCBW_DATA(s8*,  ???,				spritesDat[2].address);		//00666570
 SCBW_DATA(u8*,  IsVisible,          spritesDat[3].address);		//00665C48
 //SCBW_DATA(s8*,  ???,				spritesDat[4].address);		//00665AC0 //"Selection Circle" according to EUDDB, not starting at 0
-//SCBW_DATA(s8*,  ???,				spritesDat[5].address);		//00665FD8 //"Selection Vertical Offset" according to EUDDB
+//SCBW_DATA(s8*,  ???,				spritesDat[5].address);		//00665FD8 //"Selection Vertical Offset" according to EUDDB, not starting at 0
 } //sprites_dat (last entry at 0x00513FF4)
 
 namespace images_dat {
