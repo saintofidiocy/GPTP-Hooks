@@ -121,8 +121,8 @@ SCBW_DATA(const s32*,     ACTIVE_NATION_ID,     0x00512678);  //AKA g_ActiveNati
 SCBW_DATA(const s32*,     ACTIVE_PLAYER_ID,     0x0051267C);  //Used by GetActivePlayerNextSelectionFunc
 SCBW_DATA(const s32*,     LOCAL_NATION_ID,      0x00512684);  //AKA g_LocalNationID; Actually stores the player ID.
 SCBW_DATA(const s32*,     LOCAL_HUMAN_ID,       0x00512688);  //AKA g_LocalHumanID; Invalid in replay games.
-SCBW_DATA(const u8*,      CURRENT_TILESET,      0x00596828);  //Tileset of current map. Compare with TilesetType::Enum
-////possible values were 0057F1DC and [00596828]
+SCBW_DATA(const u16*,     CURRENT_TILESET,      0x0057F1DC);  //Tileset of current map. Compare with TilesetType::Enum
+//0x00596828 is a game settings copy that the game only fills in from 0x0057F1DC when it is 0
 
 // Array of 8 integers of 32 bits, thus 256 bits, one per switch
 // Use scbw::getMapSwitch() and scbw::setMapSwitch() to manipulate
