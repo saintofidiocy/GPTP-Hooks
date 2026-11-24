@@ -70,7 +70,7 @@ namespace graphics {
   ColorId blend(u8* rgb1, u8* rgb2, u8 a) {
     RGBA col1 = { rgb1[0], rgb1[1], rgb1[2], 0 };
     RGBA col2 = { rgb2[0], rgb2[1], rgb2[2], 0 };
-    return blend(rgb1, rgb2, a);
+    return blend(col1, col2, a);
   }
 
 
