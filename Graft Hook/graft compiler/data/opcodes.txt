@@ -1,7 +1,7 @@
 FF01	none	any	Or
 FF02	unit	any	Current unit is...
 FF03	unit	any	Must have... 
-FF04	none	unit	Must have add-on
+FF04	unit	unit	Must have add-on
 FF05	none	any	Is not lifted off
 FF06	none	no unit	Is lifted off
 FF07	none	any	Is not training or morphing
@@ -10,13 +10,13 @@ FF09	none	any	Is not researching
 FF0A	none	any	Is not upgrading
 FF0B	none	unit	Is not constructing
 FF0C	none	unit	Does not have add-on attached
-FF0D	none	unit	Does not have exit
+FF0D	none	no unit	Does not have exit
 FF0E	none	unit	Has hangar space
 FF0F	none	no unit	Must be researched
 FF10	none	unit	Does not have loaded nuke
 FF11	none	any	Is not burrowed
-FF12	none	no unit	Can attack
-FF13	none	no unit	Can set rally point
+FF12	none	no unit	Can attack (is not a grounded building)
+FF13	none	no unit	Can set rally point (is a grounded building)
 FF14	none	no unit	Can move
 FF15	none	no unit	Has weapon
 FF16	none	no unit	Is worker
