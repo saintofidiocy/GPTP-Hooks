@@ -161,6 +161,11 @@ namespace graphics {
 
           count = 0;
 
+          // Clear the results of the previous cell
+          for (i = 0; i < 256; i++) {
+            if (flags[i] != PAL_IGNORE) flags[i] = 0;
+          }
+
           // Calculate nearest and farthest points within the cell for each palette index
           for (i = 0; i < 256; i++) {
             if (flags[i] == PAL_IGNORE) continue;
