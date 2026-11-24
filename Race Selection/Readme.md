@@ -13,4 +13,5 @@ The race list can have custom race ID's for additional race and starting options
 The most basic steps to use virtual races:
 - Add entries to `CustomRaceList` and, if desired, `RandomRaceList` using unused IDs (>7).
 - Set valid race IDs for virtual races in the `setVirtualRaces` function (otherwise the game will crash when it tries to load assests for the invalid race).
+  Note that `setVirtualRaces` currently replaces every race above Protoss, which includes the vanilla IDs 3 and 4 (Independent/Neutral) and 7 (inactive), not only custom IDs (>7). Likewise, `loadMapRaces` turns any map race that is not in `CustomRaceList` into `DefaultRace`, including Neutral/Independent races set by the map.
 - Modify the functions of `create_init_units.cpp` using `getVirtualRace` rather than the given race ID to set different starting units for the custom races.
